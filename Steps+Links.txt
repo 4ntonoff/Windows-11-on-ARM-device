@@ -1,0 +1,57 @@
+
+================ In WinPE ==================
+
+//type in cmd on the phone
+diskpart
+
+select disk 0
+
+list part
+
+select part 21
+
+assign letter=Y
+
+exit
+
+//enter DISM and Install Windows
+
+//install drivers
+
+//type in cmd on the phone
+bcdedit /store Y:\efi\microsoft\boot\bcd /set {Default} testsigning on
+
+bcdedit /store Y:\efi\microsoft\boot\bcd /set {Default} nointegritychecks on
+
+shutdown -s -t 0
+
+============== After shutdown ===============
+
+
+//flash devcfg
+fastboot flash devcfg_a devcfg-beryllium_FixTS.img
+
+fastboot flash devcfg_b devcfg-beryllium_FixTS.img
+
+fastboot flash devcfg_ab devcfg-beryllium_FixTS.img
+
+================= Dual boot =================
+
+//go to fastboot
+
+//boot recovery
+fastboot boot twrp.img
+
+//send android rom+DisableForceEncryption+Firmware
+adb push miui12.zip dfe.zip firmware.zip /sdcard
+
+//go to phone
+>Install
+//select your Rom
+>Add more zips
+//select dfe
+>Add more zips
+//select firmware
+>Swipe
+//wait
+>Reboot to system
