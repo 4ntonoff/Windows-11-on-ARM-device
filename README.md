@@ -1,6 +1,6 @@
 # Poco F1 Windows install Guide
 If you have any questions
-My telegram @ximi_ow
+My telegram @byoneet
 > This guide contains the materials which work 100% stable
 > without major errors `on Xiaomi Poco F1 beryllium EBBG Panel`.
 I've created this guide for those who don't want to deal 
